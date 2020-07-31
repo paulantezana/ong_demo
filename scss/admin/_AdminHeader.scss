@@ -1,0 +1,45 @@
+// Header
+.AdminHeader{
+    height: $AdminLayoutHeaderHeight;
+    padding: 0 8px 0 0;
+    flex-wrap: nowrap;
+    &-action{
+        line-height: $AdminLayoutHeaderHeight;
+        height: $AdminLayoutHeaderHeight;
+        padding: 0 16px;
+        border: 0;
+        cursor: pointer;
+        text-decoration: none;
+        &:focus{
+            outline: 0;
+        }
+    }
+    &-action2{
+        @media screen and (min-width: 420px){
+            padding: 0 12px;
+        }
+        @include from(l){
+            padding: 0 1rem;
+        }
+        &.logout{
+            // margin-right: -.5rem;
+            padding-right: 0;
+            button{
+                background: var(--skColor1);
+                border: 0;
+                color: var(--skColor1Inverse);
+                padding: 0 1rem;
+                height: $AdminLayoutHeaderHeight / 2;
+                width: $AdminLayoutHeaderHeight / 2;
+                border-radius: 100%;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                &:hover{
+                    background: var(--skColor1Dark);
+                }
+            }
+        }
+    }
+}

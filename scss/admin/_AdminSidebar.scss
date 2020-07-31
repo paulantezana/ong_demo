@@ -1,0 +1,181 @@
+// SIDEBAR
+.AdminSidebar{
+    &-wrapper{
+        background: rgba(0,0,0,.5);
+        height: 100%;
+    }
+    &-content{
+        width: $AdminLayoutAsideWidth;
+        height: 100%;
+        background: var(--skColorDarker);
+        color: var(--skColorDarkInverse);
+    }
+    &-title{
+        font-size: 12px;
+        padding: 15px 20px 5px 20px;
+        display: inline-block;
+        text-transform: uppercase;
+    }
+    &-brand{
+        height: $AdminLayoutHeaderHeight;
+        border-bottom: 4px solid var(--skColor1);
+        padding: 12px 30px 12px 20px;
+
+        display: flex;
+        align-items: center;
+        a{
+            display: flex;
+            align-items: center;
+            color: inherit;
+            &:hover{
+                text-decoration: none;
+            }
+            span span{
+                font-size: .7rem;
+                display: block;
+                margin-top: -5px;
+            }
+        }
+        &Name{
+            font-size: 1.5rem;
+        }
+    }
+    &-menu{
+        list-style-type: none;
+        padding: 0;
+        margin: 1rem 0 0 0;
+        ul{
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            background: var(--skColorDark);
+        }
+
+        a{
+            color: var(--skColorDarkInverse);
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            position: relative;
+            padding: 12px 30px 12px 20px;
+            .badge {
+                float: right;
+                margin-top: 2.5px;
+            }
+        }
+
+        & > li > a {
+            &.active,
+            &:hover {
+                background: var(--skColor1);
+                color: white;
+            }
+        }
+        ul {
+            a {
+                &:hover{
+                    color: var(--skColor1Lighter);
+                }
+            }
+        }
+
+        .AdminSidebar-submenu{
+            display: none;
+            padding: 5px 0;
+            li a {
+                padding: 10px 10px 10px 46px;
+            }
+        }
+        .AdminSidebar-dropdown > a .iconAction {
+            position: absolute;
+            right: 15px;
+        }
+        .AdminSidebar-dropdown.active > a .iconAction {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+@mixin AsideMenuInSmall(){
+    @include from(l) {
+        .AdminSidebar{
+            &-content{
+                width: $AdminLayoutAsideSmallWidth;
+            }
+            &-title {
+                display: none;
+            }
+            &-brand{
+                padding: 12px 8px 12px 8px;
+                &Name{
+                    display: none;
+                }
+            }
+            &-menu{
+                li {
+                    position: relative;
+                    ul {
+                        position: absolute;
+                        top: 0;
+                        left: 100%;
+                        width: $AdminLayoutAsideWidth;
+                        display: none;
+                        a {
+                            padding: 10px 10px 10px 24px;
+                        }
+                    }
+                    &:hover {
+                        > ul {
+                            display: block;
+                        }
+                        > a > span {
+                            display: block;
+                            width: $AdminLayoutAsideWidth;
+                            padding: 12px 30px 12px 20px;
+                        }
+                        > a {
+                            color: var(--skColor1Lighter);
+                        }
+                    }
+                }
+
+                > li {
+                    > a {
+                        padding: 12px 16px 12px 24px;
+                        > span {
+                            position: absolute;
+                            left: 100%;
+                            top: 0;
+                            text-align: left;
+                            padding: 0 20px;
+                            width: 220px;
+                            background: var(--skColor1);
+                            display: none;
+                        }
+                        .iconAction{
+                            display: none !important;
+                        }
+                    }
+
+                    &:hover{
+                        > a {
+                            background: var(--skColor1);
+                            color: white;
+                        }
+                    }
+                    > ul {
+                        top: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.AdminLayoutL1.AdminSidebar-show{
+    @include AsideMenuInSmall();
+}
+
+.AdminLayoutL2:not(.AdminSidebar-show){
+    @include AsideMenuInSmall();
+}

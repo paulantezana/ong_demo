@@ -1,0 +1,535 @@
+:root {
+  --skColor1Lighter4: #E6F7FF;
+  --skColor1Lighter3: #BAE7FF;
+  --skColor1Lighter2: #91D5FF;
+  --skColor1Lighter: #69C0FF;
+  --skColor1Light: #40A9FF;
+  --skColor1: #1890FF;
+  --skColor1Dark: #096DD9;
+  --skColor1Darker: #0050B3;
+  --snColor1Darker2: #003A8C;
+  --snColor1Darker3: #002766;
+  --skColor1Inverse: #FFFFFF;
+  --skColorBg: #f5f5f5;
+  --skColorBgAlt: #ffffff;
+  --skColorHover: #0000000d;
+  --skColorText: #333333;
+  --skColorTextAlt: #ABABAB;
+  --skColorBorder: #DFE2E2;
+  --skColorDarkSmoother: #4f7087;
+  --skColorDarkSmooth: #3c5567;
+  --skColorDark: #2a3b47;
+  --skColorDarker: #22303a;
+  --skColorDarkest: #1a252d;
+  --skColorDarkInverse: #b6bcc0;
+}
+
+.AdminLayout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "layoutHeader" "layoutMain" "layoutAside";
+}
+@media screen and (min-width: 1024px) {
+  .AdminLayout {
+    grid-template-columns: 270px 1fr;
+    grid-auto-rows: 64px 1fr;
+    grid-template-areas: "layoutAside layoutHeader" "layoutAside layoutMain";
+  }
+}
+.AdminLayout-header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  height: 64px;
+  grid-area: layoutHeader;
+  background: var(--skColorDarker);
+  border-bottom: 4px solid var(--skColor1);
+  color: var(--skColorDarkInverse);
+}
+.AdminLayout-main {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  height: calc(100vh - 65px);
+  overflow-y: auto;
+  grid-area: layoutMain;
+  background: var(--skColorBgAlt);
+}
+.AdminLayout-main .MainContainer {
+  padding: 1rem;
+}
+.AdminLayout-sidebar {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  min-height: 100vh;
+  grid-area: layoutAside;
+}
+@media screen and (min-width: 1024px) {
+  .AdminLayout-header {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+  }
+  .AdminLayout-main {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+  }
+  .AdminLayout-sidebar {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 1;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .AdminLayout-sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    z-index: 110;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .AdminLayout.AdminSidebar-show .AdminLayout-sidebar {
+    left: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .AdminLayoutL1 {
+    grid-template-columns: 270px 1fr;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .AdminLayoutL1.AdminSidebar-show {
+    grid-template-columns: 64px 1fr;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .AdminLayoutL2 {
+    grid-template-columns: 64px 1fr;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .AdminLayoutL2.AdminSidebar-show {
+    grid-template-columns: 270px 1fr;
+  }
+}
+
+.AdminSidebar-wrapper {
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+}
+.AdminSidebar-content {
+  width: 270px;
+  height: 100%;
+  background: var(--skColorDarker);
+  color: var(--skColorDarkInverse);
+}
+.AdminSidebar-title {
+  font-size: 12px;
+  padding: 15px 20px 5px 20px;
+  display: inline-block;
+  text-transform: uppercase;
+}
+.AdminSidebar-brand {
+  height: 64px;
+  border-bottom: 4px solid var(--skColor1);
+  padding: 12px 30px 12px 20px;
+  display: flex;
+  align-items: center;
+}
+.AdminSidebar-brand a {
+  display: flex;
+  align-items: center;
+  color: inherit;
+}
+.AdminSidebar-brand a:hover {
+  text-decoration: none;
+}
+.AdminSidebar-brand a span span {
+  font-size: 0.7rem;
+  display: block;
+  margin-top: -5px;
+}
+.AdminSidebar-brandName {
+  font-size: 1.5rem;
+}
+.AdminSidebar-menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+}
+.AdminSidebar-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background: var(--skColorDark);
+}
+.AdminSidebar-menu a {
+  color: var(--skColorDarkInverse);
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  padding: 12px 30px 12px 20px;
+}
+.AdminSidebar-menu a .badge {
+  float: right;
+  margin-top: 2.5px;
+}
+.AdminSidebar-menu > li > a.active, .AdminSidebar-menu > li > a:hover {
+  background: var(--skColor1);
+  color: white;
+}
+.AdminSidebar-menu ul a:hover {
+  color: var(--skColor1Lighter);
+}
+.AdminSidebar-menu .AdminSidebar-submenu {
+  display: none;
+  padding: 5px 0;
+}
+.AdminSidebar-menu .AdminSidebar-submenu li a {
+  padding: 10px 10px 10px 46px;
+}
+.AdminSidebar-menu .AdminSidebar-dropdown > a .iconAction {
+  position: absolute;
+  right: 15px;
+}
+.AdminSidebar-menu .AdminSidebar-dropdown.active > a .iconAction {
+  transform: rotate(180deg);
+}
+
+@media screen and (min-width: 1024px) {
+  .AdminLayoutL1.AdminSidebar-show .AdminSidebar-content {
+    width: 64px;
+  }
+  .AdminLayoutL1.AdminSidebar-show .AdminSidebar-title {
+    display: none;
+  }
+  .AdminLayoutL1.AdminSidebar-show .AdminSidebar-brand {
+    padding: 12px 8px 12px 8px;
+  }
+  .AdminLayoutL1.AdminSidebar-show .AdminSidebar-brandName {
+    display: none;
+  }
+  .AdminLayoutL1.AdminSidebar-show .AdminSidebar-menu li {
+    position: relative;
+  }
+  .AdminLayoutL1.AdminSidebar-show .AdminSidebar-menu li ul {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 270px;
+    display: none;
+  }
+  .AdminLayoutL1.AdminSidebar-show .AdminSidebar-menu li ul a {
+    padding: 10px 10px 10px 24px;
+  }
+  .AdminLayoutL1.AdminSidebar-show .AdminSidebar-menu li:hover > ul {
+    display: block;
+  }
+  .AdminLayoutL1.AdminSidebar-show .AdminSidebar-menu li:hover > a > span {
+    display: block;
+    width: 270px;
+    padding: 12px 30px 12px 20px;
+  }
+  .AdminLayoutL1.AdminSidebar-show .AdminSidebar-menu li:hover > a {
+    color: var(--skColor1Lighter);
+  }
+  .AdminLayoutL1.AdminSidebar-show .AdminSidebar-menu > li > a {
+    padding: 12px 16px 12px 24px;
+  }
+  .AdminLayoutL1.AdminSidebar-show .AdminSidebar-menu > li > a > span {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    text-align: left;
+    padding: 0 20px;
+    width: 220px;
+    background: var(--skColor1);
+    display: none;
+  }
+  .AdminLayoutL1.AdminSidebar-show .AdminSidebar-menu > li > a .iconAction {
+    display: none !important;
+  }
+  .AdminLayoutL1.AdminSidebar-show .AdminSidebar-menu > li:hover > a {
+    background: var(--skColor1);
+    color: white;
+  }
+  .AdminLayoutL1.AdminSidebar-show .AdminSidebar-menu > li > ul {
+    top: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .AdminLayoutL2:not(.AdminSidebar-show) .AdminSidebar-content {
+    width: 64px;
+  }
+  .AdminLayoutL2:not(.AdminSidebar-show) .AdminSidebar-title {
+    display: none;
+  }
+  .AdminLayoutL2:not(.AdminSidebar-show) .AdminSidebar-brand {
+    padding: 12px 8px 12px 8px;
+  }
+  .AdminLayoutL2:not(.AdminSidebar-show) .AdminSidebar-brandName {
+    display: none;
+  }
+  .AdminLayoutL2:not(.AdminSidebar-show) .AdminSidebar-menu li {
+    position: relative;
+  }
+  .AdminLayoutL2:not(.AdminSidebar-show) .AdminSidebar-menu li ul {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 270px;
+    display: none;
+  }
+  .AdminLayoutL2:not(.AdminSidebar-show) .AdminSidebar-menu li ul a {
+    padding: 10px 10px 10px 24px;
+  }
+  .AdminLayoutL2:not(.AdminSidebar-show) .AdminSidebar-menu li:hover > ul {
+    display: block;
+  }
+  .AdminLayoutL2:not(.AdminSidebar-show) .AdminSidebar-menu li:hover > a > span {
+    display: block;
+    width: 270px;
+    padding: 12px 30px 12px 20px;
+  }
+  .AdminLayoutL2:not(.AdminSidebar-show) .AdminSidebar-menu li:hover > a {
+    color: var(--skColor1Lighter);
+  }
+  .AdminLayoutL2:not(.AdminSidebar-show) .AdminSidebar-menu > li > a {
+    padding: 12px 16px 12px 24px;
+  }
+  .AdminLayoutL2:not(.AdminSidebar-show) .AdminSidebar-menu > li > a > span {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    text-align: left;
+    padding: 0 20px;
+    width: 220px;
+    background: var(--skColor1);
+    display: none;
+  }
+  .AdminLayoutL2:not(.AdminSidebar-show) .AdminSidebar-menu > li > a .iconAction {
+    display: none !important;
+  }
+  .AdminLayoutL2:not(.AdminSidebar-show) .AdminSidebar-menu > li:hover > a {
+    background: var(--skColor1);
+    color: white;
+  }
+  .AdminLayoutL2:not(.AdminSidebar-show) .AdminSidebar-menu > li > ul {
+    top: 100%;
+  }
+}
+
+.AdminHeader {
+  height: 64px;
+  padding: 0 8px 0 0;
+  flex-wrap: nowrap;
+}
+.AdminHeader-action {
+  line-height: 64px;
+  height: 64px;
+  padding: 0 16px;
+  border: 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+.AdminHeader-action:focus {
+  outline: 0;
+}
+@media screen and (min-width: 420px) {
+  .AdminHeader-action2 {
+    padding: 0 12px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .AdminHeader-action2 {
+    padding: 0 1rem;
+  }
+}
+.AdminHeader-action2.logout {
+  padding-right: 0;
+}
+.AdminHeader-action2.logout button {
+  background: var(--skColor1);
+  border: 0;
+  color: var(--skColor1Inverse);
+  padding: 0 1rem;
+  height: 32px;
+  width: 32px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.AdminHeader-action2.logout button:hover {
+  background: var(--skColor1Dark);
+}
+
+.TopToolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+@media screen and (max-width: 1023px) {
+  .TopToolbar {
+    padding: 0 1rem;
+  }
+}
+@media screen and (max-width: 639px) {
+  .TopToolbar {
+    flex-direction: column;
+  }
+}
+.TopToolbar-left {
+  font-size: 1rem;
+}
+@media screen and (max-width: 639px) {
+  .TopToolbar-left {
+    margin-bottom: 16px;
+  }
+}
+.TopToolbar-right {
+  display: flex;
+}
+@media screen and (max-width: 639px) {
+  .TopToolbar-right {
+    margin-bottom: 8px;
+  }
+}
+
+.Proyect {
+  position: relative;
+  box-shadow: 0 2px 4px rgba(41, 98, 182, 0.12);
+  margin-bottom: 1rem;
+}
+.Proyect-img {
+  height: 200px;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+  position: relative;
+}
+.Proyect-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.Proyect-img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0, var(--skColorDarkest), transparent);
+  opacity: 0.5;
+}
+.Proyect-progress {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  top: -40px;
+  margin: auto;
+  background: var(--skColorDarkest);
+  border-radius: 100%;
+  border: 5px solid var(--skColorBgAlt);
+}
+.Proyect-content {
+  margin-top: -2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+.Proyect-footer {
+  padding: 1rem;
+  text-align: center;
+}
+.Proyect-title {
+  text-align: center;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 639px) {
+  .ProDeObjetive {
+    margin-top: 2rem;
+  }
+}
+.ProDeObjetive-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+@media screen and (max-width: 639px) {
+  .ProDeObjetive-header {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  .ProDeObjetive-header strong {
+    margin-bottom: 1rem;
+    display: block;
+  }
+}
+.ProDeObjetive-body {
+  background: var(--skColorBg);
+  border-radius: 8px;
+}
+@media screen and (max-width: 639px) {
+  .ProDeObjetive-body {
+    margin: 0 -1rem;
+  }
+}
+
+.ObjetiveSlide {
+  padding: 1rem;
+}
+.ObjetiveSlide ul {
+  max-height: 30vh;
+  overflow-y: auto;
+}
+
+.carousel-inner {
+  padding-bottom: 2rem;
+}
+
+.carousel-indicators li {
+  bottom: 0;
+  margin-bottom: 0px;
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+  background: var(--skColorDarkSmooth);
+  border: 0;
+  opacity: 1;
+}
+.carousel-indicators .active {
+  background-color: var(--skColor1);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  background: var(--skColorDarkSmooth);
+  opacity: 1;
+  height: 25px;
+  top: 50%;
+  height: 32px;
+  width: 32px;
+  border-radius: 100%;
+}
+.carousel-control-prev:hover, .carousel-control-prev:focus,
+.carousel-control-next:hover,
+.carousel-control-next:focus {
+  background: var(--skColorDarker);
+}
+
+.CrudHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+}

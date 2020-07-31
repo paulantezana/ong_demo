@@ -1,0 +1,148 @@
+.blockOverlay{
+    z-index: 1100 !important;;
+}
+.blockMsg {
+    z-index: 1111 !important;;
+}
+
+svg.radial-progress {
+  height: auto;
+  max-width: 200px;
+  padding: 1em;
+  transform: rotate(-90deg);
+  width: 100%;
+}
+
+svg.radial-progress circle {
+  fill: rgba(0,0,0,0);
+  stroke: #fff;
+  stroke-dashoffset: 219.91148575129;
+  stroke-width: 10;
+}
+
+svg.radial-progress circle.incomplete { opacity: 0.25; }
+
+svg.radial-progress circle.complete { stroke-dasharray: 219.91148575129; }
+
+svg.radial-progress text {
+  fill: #fff;
+  font: 400 1em/1 'Oswald', sans-serif;
+  text-anchor: middle;
+}
+.custom-file-label::after{
+	content: "Buscar"
+}
+.modal-xl{
+  max-width: 80%;
+}
+.progress{
+  height: 100%;
+}
+.btn-acordion i:before{
+  content: "\f010";
+}
+.btn-acordion.collapsed i:before{
+  content: "\f00e";
+}
+.chosen-single {
+  height: 31px !important;
+  line-height: 31px !important;
+}
+.chosen-single div{
+  top: 3px !important;
+}
+
+.align-middle {
+    vertical-align: -webkit-baseline-middle !important;
+}
+.imagen-proyecto{
+	min-height: 300px;
+	position: relative;
+  	z-index: -2;
+}
+.contenedor-imagen{
+	position: relative;
+	-moz-box-shadow: inset 0 -70px 59px -5px #547344d4;
+    -webkit-box-shadow: inset 0 -70px 59px -5px #547344d4;
+    box-shadow: inset 0 -70px 59px -5px #547344d4;
+    border-radius: 14px;
+    overflow: hidden;
+}
+.contenedor-imagen .titulo{
+	position: absolute;
+	bottom: 20px;
+	left: 5px;
+	color: white;
+}
+.contenedor-imagen .progreso{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 86px;
+	background: #ffffff61;
+	border-bottom-left-radius: 30px;
+}
+.contenedor-imagen-detalle{
+	opacity: 0;
+	background-color: white;
+	z-index: 2;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	color: black;
+	top: 0;
+	left: 0;
+}
+.contenedor-imagen-detalle h4{
+	top:44%;
+	position: relative;
+}
+
+.contenedor-imagen-detalle:hover{
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.titulo-proyecto{
+	font-size: 30px;
+	text-align: center;
+}
+.contenedor-icono{
+  border:solid #343a40 1px;
+  border-radius: 50%;
+  padding: 8px 8px 8px 10px;
+  text-align: center;
+  color:white;
+  background-color: #343a40;
+}
+
+button:hover .contenedor-icono{
+  color:#343a40;
+  background-color: white;
+}
+
+.contenedor-avance{
+  background-color: #00000036; border-radius: 1.25rem;
+  text-align: center;
+}
+
+.actividad-NUEVO{
+  background-color: #a2cfff;
+}
+.actividad-SOLICITADO{
+  background-color: #fff69f;
+}
+.actividad-AUTORIZADO{
+  background-color: #a5ffa5;
+}
+.actividad-RECHAZADO{
+  background-color: #ffbbbb;
+}
+
+/* .foto-habitacion:hover{
+  opacity: 0.5;
+}
+
+.input-group .chosen-container{
+  max-width : 85%;
+} */

@@ -1,0 +1,71 @@
+@import 'util';
+
+$primary:       #1890FF;
+// $primary:       $blue !default;
+// $secondary:     $gray-600 !default;
+// $success:       $green !default;
+// $info:          $cyan !default;
+// $warning:       $yellow !default;
+// $danger:        $red !default;
+// $light:         #FFF1F0;
+// $dark:          $gray-800 !default;
+
+
+$font-size-base:              0.875rem;
+
+
+
+@import "bootstrap/bootstrap";
+
+
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+// body,
+// .form-control,
+// .dropdown-menu,
+// .input-group-text,
+// .custom-select,
+// .btn{
+//     font-size: 0.875rem;
+// }
+.table{
+    td,
+    th{
+        padding: .5rem;
+        vertical-align: middle;
+    }
+    thead{
+        th{
+            // font-weight: 700;
+            border-bottom: 0;
+        }
+    }
+}
+b, strong{
+    // font-weight: 700;
+}
+
+.modal{
+    &-header{
+        background: var(--skColorDarker);
+        color: var(--skColorDarkInverse);
+        border-bottom: 4px solid var(--skColor1);
+        .close{
+            color: var(--skColorDarkInverse);
+        }
+    }
+    &-title{
+        font-size: 1rem;
+    }
+}
+
+.btn-light{
+    color: var(--skColor1);
+    &:active,
+    &:focus,
+    &:hover{
+        color: var(--skColor1);
+    }
+}
